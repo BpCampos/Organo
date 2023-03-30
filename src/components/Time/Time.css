@@ -1,0 +1,25 @@
+.time {
+  background-color: #d9f7e9;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  width: inherit;
+}
+
+.time h2 {
+  font-size: 28px;
+  margin: 0;
+  border-bottom: 4px solid;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.time .colaboradores {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}

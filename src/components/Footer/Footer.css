@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4947f1;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+.details p {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
