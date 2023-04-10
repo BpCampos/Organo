@@ -1,5 +1,17 @@
 .colaborador {
+  position: relative;
   width: 280px;
+}
+
+.colaborador .deletar {
+  position: absolute;
+  right: -6px;
+  top: -9px;
+  font-size: 1.3rem;
+}
+
+.colaborador .deletar:hover {
+  cursor: pointer;
 }
 
 .colaborador .cabecalho {

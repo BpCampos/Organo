@@ -3,48 +3,49 @@ import Footer from './components/Footer';
 import Formulario from './components/Formulario';
 import Time from './components/Time'
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid'
 
 
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
+      id: uuidv4(),
       nome: 'Programação',
-      corPrimaria: '#57c278',
-      corSecundaria: '#d9f7e9'
+      cor: '#57c278',
     },
     {
+      id: uuidv4(),
       nome: 'Front-End',
-      corPrimaria: '#82cffa',
-      corSecundaria: '#e8f8ff'
+      cor: '#82cffa',
     },
     {
+      id: uuidv4(),
       nome: 'Data Science',
-      corPrimaria: '#a6d157',
-      corSecundaria: '#f0f8e2'
+      cor: '#a6d157',
     },
     {
+      id: uuidv4(),
       nome: 'Devops',
-      corPrimaria: '#e06b69',
-      corSecundaria: '#fde7e8'
+      cor: '#e06b69',
     },
     {
+      id: uuidv4(),
       nome: 'UX e Design',
-      corPrimaria: '#db6ebf',
-      corSecundaria: '#fae9f5'
+      cor: '#db6ebf',
     },
     {
+      id: uuidv4(),
       nome: 'Mobile ',
-      corPrimaria: '#ffba05',
-      corSecundaria: '#fff5d9'
+      cor: '#ffba05',
     },
     {
+      id: uuidv4(),
       nome: 'Inovação e Gestão',
-      corPrimaria: '#ff8a29',
-      corSecundaria: '#ffeedf'
+      cor: '#ff8a29',
     }
-  ]
+  ])
 
   const [colaboradores, setColaboradores] = useState([])
 
@@ -53,17 +54,38 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
 
+  function deletaColaborador(id) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
+  }
+
+  function mudaCorTime(cor, id) {
+    setTimes(times.map(time => {
+      if (time.id === id) {
+        time.cor = cor
+      }
+      return time
+    }))
+  }
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }])
+  }
+
   return (
     <div className="App" >
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
+      <Formulario
+        times={times.map(time => time.nome)}
+        aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
+        cadastrarTime={cadastrarTime}
+      />
 
       {times.map(time => <Time
+        mudarCor={mudaCorTime}
         key={time.nome}
-        nome={time.nome}
-        corPrimaria={time.corPrimaria}
-        corSecundaria={time.corSecundaria}
+        time={time}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        aoDeletar={deletaColaborador}
       />)}
 
       <Footer />

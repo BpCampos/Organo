@@ -5,6 +5,7 @@
   text-align: center;
   margin-bottom: 10px;
   width: inherit;
+  position: relative;
 }
 
 .time h2 {
@@ -22,4 +23,10 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 32px;
+}
+
+.input-cor {
+  position: absolute;
+  top: 20px;
+  right: 50px;
 }
