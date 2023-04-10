@@ -22,7 +22,8 @@ const Formulario = ({ times, aoColaboradorCadastrado, cadastrarTime }) => {
             nome,
             cargo,
             imagem,
-            time
+            time,
+            favorito: false
         })
         setNome('')
         setCargo('')
